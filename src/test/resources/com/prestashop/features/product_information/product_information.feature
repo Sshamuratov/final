@@ -8,12 +8,12 @@ Scenario: Display the correct product name
 	Then product information page should be displayed 
 	And product name should be Printed Summer Dress 
 	
-	@regression
+	
 Scenario: Default count and size information 
 	When the user selects Printed Summer Dress 
 	Then correct default count size should be displayed 
 		
-@regression
+
 Scenario: Display the correct product name by name 
 	When the user selects "Printed Summer Dress" 
 	Then product page title should contain "Printed Summer Dress" 

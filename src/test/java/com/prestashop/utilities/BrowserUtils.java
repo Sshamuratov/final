@@ -27,7 +27,7 @@ public class BrowserUtils {
 	/*
 	 * switches to new window by the exact title
 	 */
-	public static void switchToWindow(String targetTitle) {
+	public static void switchToWindow(String targetTitle) throws Exception {
 		String origin = Driver.getDriver().getWindowHandle();
 		for (String handle : Driver.getDriver().getWindowHandles()) {
 			Driver.getDriver().switchTo().window(handle);
@@ -38,7 +38,7 @@ public class BrowserUtils {
 		Driver.getDriver().switchTo().window(origin);
 	}
 
-	public static void hover(WebElement element) {
+	public static void hover(WebElement element) throws Exception {
 		Actions actions = new Actions(Driver.getDriver());
 		actions.moveToElement(element).perform();
 	}
@@ -60,7 +60,7 @@ public class BrowserUtils {
 		return elemTexts;
 	}
 
-	public static List<String> getElementsText(By locator) {
+	public static List<String> getElementsText(By locator) throws Exception {
 
 		List<WebElement> elems = Driver.getDriver().findElements(locator);
 		List<String> elemTexts = new ArrayList<>();
@@ -91,12 +91,12 @@ public class BrowserUtils {
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 
-	public static WebElement waitForClickablility(WebElement element, int timeout) {
+	public static WebElement waitForClickablility(WebElement element, int timeout){
 		WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
 		return wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 
-	public static WebElement waitForClickablility(By locator, int timeout) {
+	public static WebElement waitForClickablility(By locator, int timeout){
 		WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
 		return wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
@@ -117,7 +117,7 @@ public class BrowserUtils {
 		}
 	}
 
-	public static WebElement fluentWait(final WebElement webElement, int timeinsec) {
+	public static WebElement fluentWait(final WebElement webElement, int timeinsec){
 		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(Driver.getDriver())
 				.withTimeout(timeinsec, TimeUnit.SECONDS).pollingEvery(timeinsec, TimeUnit.SECONDS)
 				.ignoring(NoSuchElementException.class);

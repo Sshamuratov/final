@@ -2,6 +2,8 @@ package com.prestashop.utilities;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 public class TestingExcelUtil {
 	public static void main(String[] args) {
@@ -10,34 +12,38 @@ public class TestingExcelUtil {
 		
 		System.out.println("columns "+excelObject.columnCount());
 		System.out.println("row "+excelObject.rowCount());
-		// method to get  all column names
-		List<String> columnsNames = excelObject.getColumnsNames();
-		System.out.println(columnsNames);
-		// get all data in nested array
-		String[][] dataArray = excelObject.getDataArray();
-		
-		for (String[] row : dataArray) {
-			for (String value : row) {
-				System.out.print(value+"\t");
-			}
-			System.out.println();
-		}
-		
+//		// method to get  all column names
+//		List<String> columnsNames = excelObject.getColumnsNames();
+//		System.out.println(columnsNames);
+//		// get all data in nested array
+//		String[][] dataArray = excelObject.getDataArray();
+//		
+//		for (String[] row : dataArray) {
+//			for (String value : row) {
+//				System.out.print(value+"\t");
+//			}
+//			System.out.println();
+//		}
+//		
 		List<Map<String,String>> dataList = excelObject.getDataList();
-		
-		System.out.println(dataList);
-		
-		for (Map<String, String> row : dataList) {
-			System.out.println(row);
+		Set<Entry<String, String>> t = dataList.get(2).entrySet();
+		for (Entry<String, String> entry : t) {
+			System.out.print(entry.getKey()+ "\t");
 		}
-		
-		// name of the product in the 3rd row
-		System.out.println("Name of the PRODUCT in the 3rd row");
-		
-		System.out.println(dataList.get(3).get("Product"));
-		
-		// get data by index
-		System.out.println(excelObject.getCellData(0, 0));
+//		
+//		System.out.println(dataList);
+//		
+//		for (Map<String, String> row : dataList) {
+//			System.out.println(row);
+//		}
+//		
+//		// name of the product in the 3rd row
+//		System.out.println("Name of the PRODUCT in the 3rd row");
+//		
+//		System.out.println(dataList.get(3).get("Product"));
+//		
+//		// get data by index
+//		System.out.println(excelObject.getCellData(0, 0));
 	}
 	
 	

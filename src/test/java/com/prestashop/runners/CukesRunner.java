@@ -12,13 +12,13 @@ import cucumber.api.junit.Cucumber;
 				"html:target/default-cucumber-reports", //generates every time we run the cukes runner
 				"json:target/cucumber.json",
 				"junit:target/cucumber.xml"
+				
 		
 		},
-		
-		tags="@temp",
-		features= {"src/test/resources/com/prestashop/features", 
-				"src/test/resources/com/ct_bnb/features"}, 
-		glue= {"com/prestashop/step_definitions", "com/ctbnb/step_definitions" }
-//		,dryRun = true
+		//"com/prestashop/step_definitions", "com/ctbnb/step_definitions",
+//		tags="@etsy",
+		features= {"src/test/resources/com/Etsy"}, 
+		glue= {"com/etsy/step_definitions"} 
+	//	,dryRun = true
 		)
 public class CukesRunner {}
