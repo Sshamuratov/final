@@ -53,9 +53,7 @@ public class EtsySearchStepDefs {
 
 	@Then("Search result should be displayed")
 	public void search_result_should_be_displayed() throws Exception {
-		if(keyword.contains("pan")) {
-			keyword+=1;
-		} 
+		
 	 assertTrue(Driver.getDriver().getTitle().toLowerCase().contains(keyword));
 	}
 
